@@ -85,12 +85,14 @@ barba.init({
         // Slide Up Product section animation
         {
             name: 'product-gallery',
-            from: {namespace: ['handbag']},
-            to: {namespace: ['products']},
+            sync: true,
+            from: {namespace: ['handbag', 'products', 'boot', 'hat']},
+            to: {namespace: ['products', 'handbag', 'products', 'products']},
             enter(data){
                 const done = this.async();
                 let next = data.next.container;
                 showProducGallery(next, done) 
+       
             },
             leave(data) {
                 const done = this.async();
