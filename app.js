@@ -1,6 +1,8 @@
 // GSAP timeline
 
 const tl = gsap.timeline({defaults: {duration: 0.75, ease: 'Power2.easeOut'}})
+const tlProductGallery = gsap.timeline({defaults: {duration: 0.6, ease: 'Power2.easeOut'}})
+
 
 // Animations
 const leaveAnimation = (current, done) => {
@@ -35,6 +37,21 @@ const enterAnimation = (next, done, gradient) => {
     )
 }
 
+const showProducGallery = (next, done) => {
+
+    return (
+        tlProductGallery.fromTo(next, {y: '100%'}, {y: '0%'}),
+        tlProductGallery.fromTo('.card', {opacity: 0, y: 50}, {opacity: 1, y:0 , stagger: 0.1, onComplete: done}, '<')
+    )
+}
+
+const leaveProductGallery = (current, done) => {
+
+    return (
+        tlProductGallery.fromTo(current, {y: '0%'}, {y: '100%', onComplete: done})
+    )
+}
+
 
 
 // Barba init
@@ -62,6 +79,23 @@ barba.init({
                 let next = data.next.container;
                 let gradient = getGradient(data.next.namespace);
                 enterAnimation(next, done, gradient);
+
+            }
+        },
+        // Slide Up Product section animation
+        {
+            name: 'product-gallery',
+            from: {namespace: ['handbag']},
+            to: {namespace: ['products']},
+            enter(data){
+                const done = this.async();
+                let next = data.next.container;
+                showProducGallery(next, done) 
+            },
+            leave(data) {
+                const done = this.async();
+                let current = data.current.container;
+                leaveProductGallery(current, done)
 
             }
         }
