@@ -6,8 +6,9 @@
 }
 body {
     background: linear-gradient(260deg, #d3555b, #a26267);
+    min-height: 100vh;
+    overflow: scroll;
 
-    
 }
 
 
@@ -38,7 +39,7 @@ nav > * {
     align-items: center;
     justify-content: space-between;
     min-height: 90vh;
-    overflow: hidden;
+    /* overflow: hidden; */
     padding: 0px 100px;
 }
 
@@ -79,7 +80,7 @@ nav > * {
 
 .arrow {
     position: absolute;
-    bottom: 2%;
+    bottom: 10%;
     right: 8%;
     transform: scale(0.7);
 }
@@ -92,7 +93,7 @@ nav > * {
 
 .circle-1 {
     transform: scale(1.2);
-    bottom: -10%;
+    bottom: 0%;
     left: -4%;
 }
 
@@ -190,18 +191,23 @@ nav {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        text-align: center;
+        margin-top: 30px;
     }
+
+  
 
     .image-product  {
         order: 1;
         align-items: center;
         justify-content: center;
-        min-height: 30vh;
+        min-height: 50vh;
+        margin-top: 20px;
 
     }
 
     .image-product img {
-        width: 60%;
+        width: 80%;
       
     }
 
@@ -214,12 +220,25 @@ nav {
         bottom: 30%;
     }
 
+    /* Product gallery section */
+
+    .product-section {
+  
+        padding: 0px 50px;
+    }
+
 }
 
 @media (max-width: 400px) {
+
+  
     nav {
-        padding: 20px 20px;
+        padding: 10px 20px;
     }
+
+  nav > * {
+    transform: scale(0.7);
+  }
 
     .showcase {
         padding: 0px 20px;
@@ -227,27 +246,68 @@ nav {
 
     .product-text  {
         text-align: center;
+        margin-top: 20px;
     }
 
-
-
     .product-text h2 {
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
 
     .product-text h3 {
-        font-size: 1rem;
+        font-size: .9rem;
     }
 
     .image-product img {
-        width: 100%;
+        width: 70%;
       
     }
 
     .image-product  {
-     
         min-height: 30vh;
 
     }
+
+    .arrow {
+        bottom: 0%;
+        right: 8%;
+        transform: scale(0.4);
+    }
+
+    .circle-1 {
+        display: none;
+    }
+
+    .circle-3 {
+        right: 10%;
+        bottom: 5%;
+    }
+
+  
+    /* Product gallery section */
+
+
+    .product-header {
+        align-items: center;
+        padding: 30px 0px 10px 0px;
+        
+    }
+
+    .product-header p {
+        text-align: center;
+        font-size: .9rem;
+    }
+
+    .product-section {
+  
+        padding: 0px 20px;
+    }
+
+    .product-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 20px;
+    }
+
+    
 
 }
